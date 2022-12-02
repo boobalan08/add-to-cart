@@ -10,10 +10,16 @@ const NavBar = ({ cartCount }) => {
         <li>Contact Us</li>
         <li>About Us</li>
       </ul>
-      {/* <div className="cart">
-      <img src="https://cdn-icons-png.flaticon.com/512/34/34627.png" className="cart_img"/><h4>Cart</h4><span className="cartNo">{cartCount}</span>
-      </div> */}
-      <button className="btn1">   <img src="https://cdn-icons-png.flaticon.com/512/34/34627.png" className="cart_img"/><h4>Cart</h4><span className="cartNo">{cartCount}</span> </button>
+
+      <button className="btn1">
+        {" "}
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/34/34627.png"
+          className="cart_img"
+        />
+        <h4>Cart</h4>
+        <span className="cartNo">{cartCount}</span>{" "}
+      </button>
     </div>
   );
 };

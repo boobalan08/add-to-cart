@@ -1,20 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Product = (props) => {
-  const imgsrc = props.value.pic;
-  const name = props.value.name;
-  const price = props.value.price;
-  let cartName = !props.value.addedToCart ? "Add to Cart" : "Remove";
+const Product = ({value,cart,setCart}) => {
+  const imgsrc = value.pic;
+  const name = value.name;
+  const price =value.price;
 
-  // handle cart number ;
+  const [show, setShow] = useState(true);
 
-  const handleCart = () => {
-    console.log(cartName);
-    //passing data child to parent using call back ();
-
-    if (cartName === "Add to Cart") props.parent(1, name);
-    else props.parent(-1, name);
-  };
+    
+    function IncreaseCart() {
+        return setCart(cart + 1);
+    }
+    function DecreaseCart() {
+        return setCart(cart - 1);
+    }
 
   return (
     <div className="card">
@@ -23,7 +22,10 @@ const Product = (props) => {
       <p>
         <b>{price}</b>
       </p>
-      <button className="btn" onClick={handleCart}>{cartName}</button>
+      <button className="btn btn-primary" onClick={() => {
+                            setShow(!show);
+                            show ? IncreaseCart() : DecreaseCart()
+                        }}>{show ? "Add to Cart" : "Remove"}</button>
     </div>
   );
 };
